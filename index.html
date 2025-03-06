@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Support Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      width: 400px;
+      max-width: 90%;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      background: #007bff;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chat-header small {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    #chatBox {
+      flex: 1;
+      height: 400px;
+      overflow-y: auto;
+      padding: 15px;
+      background: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .message {
+      margin: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .message.user {
+      justify-content: flex-end;
+    }
+
+    .message.agent {
+      justify-content: flex-start;
+    }
+
+    .message .bubble {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .message.user .bubble {
+      background: #007bff;
+      color: #fff;
+      border-bottom-right-radius: 5px;
+    }
+
+    .message.agent .bubble {
+      background: #e9ecef;
+      color: #333;
+      border-bottom-left-radius: 5px;
+    }
+
+    .message .timestamp {
+      font-size: 10px;
+      color: #999;
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    .message.agent .timestamp {
+      text-align: left;
+    }
+
+    .chat-form {
+      display: flex;
+      padding: 10px;
+      background: #fff;
+    }
+
+    #message {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    #message:focus {
+      border-color: #007bff;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      Live Support Chat
+      <small>Powered by OpenAI</small>
+    </div>
+    <div id="chatBox">
+      <div id="messages"></div>
+    </div>
+    <form id="chatForm" class="chat-form">
+      <input type="text" id="message" placeholder="Type your message..." required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <script src="dist/bundle.js"></script>
+</body>
+
+</html>
